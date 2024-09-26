@@ -1,0 +1,42 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true">
+  <div class="container" id="pagina"> 
+    <div class="form">
+      <ion-grid>
+        <ion-row id="titulo">
+          <h1>Bienvenido!</h1>
+          <h3>Para continuar, inicie sesión.</h3>
+        </ion-row>
+        <ion-row>
+          <ion-input label="Correo electronico" label-placement="floating" fill="outline" placeholder="Ingrese su correo" type="email" color="light"></ion-input>
+        </ion-row>
+        <ion-row>
+          <ion-input label="Contraseña" label-placement="floating" fill="outline" placeholder="Ingrese su contraseña" type="password" color="light"></ion-input>
+        </ion-row>
+        <ion-row>
+          <ion-button fill="solid" type="submit" id="submit">Iniciar Sesión</ion-button>
+        </ion-row>
+        <ion-row>
+          <h3>O ingresa con un usuario preestablecido</h3>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4"><ion-button fill="solid" id="usuarioUno">Enzo</ion-button></ion-col>
+          <ion-col size="4"><ion-button fill="solid" id="usuarioDos">Mora</ion-button></ion-col>
+          <ion-col size="4"><ion-button fill="solid" id="usuarioTres">Beto</ion-button></ion-col>
+        </ion-row>
+        <!-- <ion-row id="registro">
+          <div><span>No tenés una cuenta aún? </span><a href="/registro">Registrate</a></div>
+        </ion-row> -->
+      </ion-grid>
+    </div>
+
+  </div>
+</ion-content>
+<ion-footer>
+  <div><span>No tenés una cuenta aún? </span><a href="/registro">Registrate</a></div>
+</ion-footer>
