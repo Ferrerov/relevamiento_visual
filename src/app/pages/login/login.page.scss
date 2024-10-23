@@ -1,4 +1,4 @@
-ion-content{
+/*ion-content{
     align-items: center;
     justify-content: center;
     --background: #A62639;
@@ -64,6 +64,7 @@ ion-icon{
     justify-content: center;
     align-items: center;
     display: flex;
+    flex-direction: column;
 }
 
 h1{
@@ -130,5 +131,103 @@ h4{
     --background: #200116;
     font-size: 5vw;
     font-weight: 600;
+}*/
+ion-content{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    .pagina{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #A62639;      
+        //color: #FAF4D3;  
+        .titulo{
+            width: 100%;
+            height: 20%;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: center;
+            padding-left: 10%;
+            color: #FAF4D3;
+            margin-bottom: 6%;
+            margin-top: 12%;
+            h1{
+                font-size: 12.5vw;
+                font-weight: 600;
+            }
+            h3{
+                font-size: 8vw;
+            }
+        }
+        .form{
+            width: 100%;
+            height: 50%;
+            form{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .campos{
+                    width: 80%;
+                    ion-input{
+                        width: 100%;
+                        justify-content: center;
+                        align-items: center;
+                        height: 80px;
+                        font-size: 18px;
+                        color: #FAF4D3;
+                        margin-bottom: 3%;
+                        --highlight-color-focused: #FAF4D3;
+                    }
+                }
+                .boton{
+                    width: 80%;
+                    ion-button{
+                        width: 100%;
+                        height: 80px;
+                        font-size: 20px;
+                        --background: #200116;
+                        color: #FAF4D3;
+                    }
+                }
+            }
+        }
+        .usuarios{
+            width: 100%;
+            height: 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #FAF4D3;
+            padding-bottom: 10%;
+            ion-grid{
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                ion-row{
+                    h4{
+                        font-size: 7.3vw;
+                    }
+                    ion-col{
+                        ion-button{
+                            color: #FAF4D3;
+                            --background: #200116;
+                            font-size: 5vw;
+                            font-weight: 600;
+                            height: 12vh;
+                            width: 12vh;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
-

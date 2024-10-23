@@ -15,6 +15,7 @@ export class AppComponent {
   router = inject(Router)
 
   ngOnInit() {
-    this.router.navigateByUrl('/splash');
+    //this.router.navigateByUrl('/splash');
+    //this.router.navigateByUrl('/login');
   }
 }

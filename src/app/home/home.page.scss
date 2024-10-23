@@ -1,27 +1,53 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+ion-content {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  .pagina {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    .botones {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      .boton {
+        height: 50%;
+        width: 100%;
+        ion-button {
+          height: 100%;
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          font-size: 10vh;
+          text-align: center;
+          font-weight: 700;
+          --border-radius: 0;
+        }
+      }
+      .boton-uno {
+        ion-button {
+          //--background: #200116;
+          --background: transparent;
+          color: #ffffff;
+          background-image: url('https://firebasestorage.googleapis.com/v0/b/pp-laboiv-87b74.appspot.com/o/cosas-lindas.jpg?alt=media&token=11285fa3-98ce-4222-aa82-5a33573da754');
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+      }
+      .boton-dos {
+        ion-button {
+          //--background: #a62639;
+          --background: transparent;
+          color: #ffffff;
+          background-image: url('https://firebasestorage.googleapis.com/v0/b/pp-laboiv-87b74.appspot.com/o/cosas-feas.jpg?alt=media&token=038e75f8-c72a-4a74-8d5a-1e5fc3348983');
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+  }
 }
