@@ -67,7 +67,8 @@ ion-icon{
 }
 
 h1{
-    font-size: 50px;
+    font-size: 12.5vw;
+    font-weight: 600;
 }
 p{
     font-size: 23px;
@@ -106,18 +107,28 @@ a{
 h3{
     color: #FAF4D3;
 }
+h4{
+    color: #FAF4D3;
+    text-align: center;
+}
 
 #usuarioUno{
     color: #FAF4D3;
     --background: #200116;
+    font-size: 5vw;
+    font-weight: 600;
 }
 
 #usuarioDos{
     color: #FAF4D3;
     --background: #200116;
+    font-size: 5vw;
+    font-weight: 600;
 }
 #usuarioTres{
     color: #FAF4D3;
     --background: #200116;
+    font-size: 5vw;
+    font-weight: 600;
 }
 

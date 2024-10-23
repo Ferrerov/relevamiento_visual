@@ -1,43 +1,98 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonFooter, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonGrid, IonRow, IonCol, IonInput, IonButton, IonIcon } from '@ionic/angular/standalone';
+import {
+  FormBuilder,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import {
+  IonContent,
+  IonHeader,
+  IonFooter,
+  IonTitle,
+  IonToolbar,
+  IonCard,
+  IonCardHeader,
+  IonCardTitle,
+  IonCardSubtitle,
+  IonCardContent,
+  IonGrid,
+  IonRow,
+  IonCol,
+  IonInput,
+  IonButton,
+  IonIcon,
+} from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { person } from 'ionicons/icons';
+import { person, lockClosed } from 'ionicons/icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [IonIcon, IonButton, IonInput, IonCol, IonRow, IonGrid, IonCardContent, IonCardHeader, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonFooter, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle]
+  imports: [
+    IonIcon,
+    IonButton,
+    IonInput,
+    IonCol,
+    IonRow,
+    IonGrid,
+    IonCardContent,
+    IonCardHeader,
+    IonContent,
+    IonHeader,
+    IonTitle,
+    IonToolbar,
+    CommonModule,
+    FormsModule,
+    IonFooter,
+    IonCard,
+    IonCardHeader,
+    IonCardTitle,
+    IonCardSubtitle,
+    ReactiveFormsModule,
+    FormsModule,
+  ],
 })
-export class LoginPage/* implements OnInit */{
+export class LoginPage {
+  formbuilder = inject(FormBuilder);
+  router = inject(Router);
+  //authService = inject(AuthService);
+  //firestoreService = inject(FirestoreService);
+  errorFirebase: string | null = null;
 
   constructor() {
-    /**
-     * Any icons you want to use in your application
-     * can be registered in app.component.ts and then
-     * referenced by name anywhere in your application.
-     */
-    addIcons({ person });
+    addIcons({ person, lockClosed });
+  }
+  form = this.formbuilder.nonNullable.group({
+    correo: ['', [Validators.required, Validators.email]],
+    contrasena: ['', [Validators.required]],
+  });
+
+  onSubmit(): void {
+    this.router.navigateByUrl('/home');
   }
 
-  /*ngOnInit() {
-  }*/
-
-  completarCredenciales(usuario: string)
-  {
-    switch(usuario)
-    {
-      case 'usuarioUno':
+  setCredentials(tipo: string) {
+    var correo = '';
+    var contrasena = '';
+    switch (tipo) {
+      case 'admin':
+        correo = 'admin@admin.com';
+        contrasena = '111111';
         break;
-      case 'usuarioDos':
+      case 'invitado':
+        correo = 'invitado@invitado.com';
+        contrasena = '222222';
         break;
-      case 'usuarioTres':
       default:
+        correo = 'usuario@usuario.com';
+        contrasena = '333333';
         break;
     }
+    this.form.setValue({ correo, contrasena });
   }
-
 }
