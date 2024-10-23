@@ -1,4 +1,4 @@
-export interface FileUpload {
+export interface ImagenInterface {
     key: string;
     name: string;
     url: string;

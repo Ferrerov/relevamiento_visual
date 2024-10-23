@@ -7,8 +7,8 @@
     <div class="form">
       <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="campos">
-          <ion-input label="Correo electronico" label-placement="floating" fill="outline" placeholder="Ingrese su correo" type="email" color="light"></ion-input>
-          <ion-input label="Contraseña" label-placement="floating" fill="outline" placeholder="Ingrese su contraseña" type="password" color="light"></ion-input>
+          <ion-input label="Correo electronico" label-placement="floating" fill="outline" placeholder="Ingrese su correo" type="email" color="light" formControlName="correo"></ion-input>
+          <ion-input label="Contraseña" label-placement="floating" fill="outline" placeholder="Ingrese su contraseña" type="password" color="light" formControlName="contrasena"></ion-input>
         </div>
         <div class="boton">
           <ion-button type="submit"> Ingresar </ion-button>
@@ -22,13 +22,13 @@
         </ion-row>
         <ion-row>
           <ion-col size="4"
-            ><ion-button fill="solid" id="usuarioUno">Enzo</ion-button></ion-col
+            ><ion-button fill="solid" id="usuarioUno" (click)="setCredentials('admin')">Enzo</ion-button></ion-col
           >
           <ion-col size="4"
-            ><ion-button fill="solid" id="usuarioDos">Mora</ion-button></ion-col
+            ><ion-button fill="solid" id="usuarioDos" (click)="setCredentials('invitado')">Mora</ion-button></ion-col
           >
           <ion-col size="4"
-            ><ion-button fill="solid" id="usuarioTres"
+            ><ion-button fill="solid" id="usuarioTres" (click)="setCredentials('usuario')"
               >Beto</ion-button
             ></ion-col
           >

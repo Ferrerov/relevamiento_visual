@@ -27,6 +27,7 @@ import {
 import { addIcons } from 'ionicons';
 import { person, lockClosed } from 'ionicons/icons';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -60,7 +61,7 @@ import { Router } from '@angular/router';
 export class LoginPage {
   formbuilder = inject(FormBuilder);
   router = inject(Router);
-  //authService = inject(AuthService);
+  authService = inject(AuthService);
   //firestoreService = inject(FirestoreService);
   errorFirebase: string | null = null;
 
@@ -72,27 +73,37 @@ export class LoginPage {
     contrasena: ['', [Validators.required]],
   });
 
-  onSubmit(): void {
-    this.router.navigateByUrl('/home');
+  onSubmit() : void{
+    const rawForm = this.form.getRawValue();
+    this.authService.login(rawForm.correo ,rawForm.contrasena)
+    .subscribe({
+      next: () => {
+        this.router.navigateByUrl('/home');},
+      error: (err) => {
+        console.log(err.code);
+        this.errorFirebase = 'Las credenciales no coinciden';
+      }
+    });
   }
 
   setCredentials(tipo: string) {
     var correo = '';
     var contrasena = '';
-    switch (tipo) {
+    console.log(tipo);
+    switch(tipo){
       case 'admin':
-        correo = 'admin@admin.com';
+        correo  = 'admin@admin.com';
         contrasena = '111111';
         break;
       case 'invitado':
-        correo = 'invitado@invitado.com';
+        correo  = 'invitado@invitado.com';
         contrasena = '222222';
         break;
       default:
-        correo = 'usuario@usuario.com';
+        correo  = 'usuario@usuario.com';
         contrasena = '333333';
         break;
     }
-    this.form.setValue({ correo, contrasena });
+    this.form.setValue({ correo, contrasena});
   }
 }

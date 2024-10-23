@@ -9,8 +9,17 @@
       </div>
     </div>
     <div class="tomar-foto">
-      <div class="boton">
-        <ion-button>Tomar foto</ion-button>
+      <div class="boton-foto">
+        <ion-button type="file" (change)="upload($event)">
+          <!-- <ion-icon name="camera-outline"></ion-icon> -->
+          Tomar foto
+        </ion-button>
+        <input type="file" (change)="upload($event)">
+          <!-- <ion-button>
+            <ion-icon slot="start" name="camera-outline"></ion-icon>
+            Tomar foto
+          </ion-button> -->
+        <!-- <input type="file" (change)="tomarFoto($event)"> -->
       </div>
     </div>
   </div>
